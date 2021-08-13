@@ -1,0 +1,19 @@
+.body {
+	display: flex;
+	width: 80vw;
+	height: 100vh;
+	background-color: #334756;
+}
+
+.body__container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 1vw;
+}
+
+.field {
+	height: 100%;
+	width: 100%;
+}
