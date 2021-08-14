@@ -20,11 +20,7 @@ export default function Body({ col = 8, row = 5 }) {
 	return (
 		<div className="body">
 			<div className="body__container">
-				<table className="field">
-					<tbody>
-						<Card col={col} row={row} list={list} />
-					</tbody>
-				</table>
+				<Card col={col} row={row} list={list} />
 			</div>
 		</div>
 	);

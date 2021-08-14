@@ -1,89 +1,63 @@
 import './Card.css';
-import { useState } from 'react';
-import card_back from '../Images/pokeball.png';
+import { useState, useEffect } from 'react';
+import card_back from '../Images/pokeball_green.png';
 
 const Pokemon = ({ col, row, list }) => {
-	const [side, setSide] = useState(Array(col * row).fill(false));
-	const [click, setClick] = useState(0);
-	const [pair, setPair] = useState([-1, -1]);
-	col = Array(col).fill();
-	row = Array(row).fill();
+	const [pause, setPause] = useState(false);
+	const [flip, setFlip] = useState([]);
+	const [flipped, setFlipped] = useState([]);
 
-	const flip = (pos) => {
-		const newPair = () => {
-			setSide(
-				side.map((state, index) => {
-					if (index === pair[0] || index === pair[1]) {
-						if (list[pair[0]] === list[pair[1]]) {
-							return true;
-						} else {
-							return false;
-						}
-					}
-					return state;
-				})
-			);
-			setPair(
-				pair.map(() => {
-					return -1;
-				})
-			);
-		};
-		setSide(
-			side.map((state, index) => {
-				if (index === pos) {
-					setPair(
-						pair.map((el, index) => {
-							if (index === click) {
-								return pos;
-							}
-							return el;
-						})
-					);
-					return true;
-				}
-				return state;
-			})
-		);
-		setClick((click) => {
-			if (click < 2) {
-				return click + 1;
-			} else {
-				newPair();
-				return 0;
+	useEffect(() => {
+		if (flip.length === 2) {
+			const first = list[flip[0]];
+			const second = list[flip[1]];
+			setTimeout(() => setFlip([]), 1000);
+			setPause(true);
+			setTimeout(() => setPause(false), 1000);
+			if (first === second) {
+				setFlipped((cards) => [...cards, flip[0], flip[1]]);
 			}
-		});
-		console.log(click);
-	};
-	return row.map((elr, r) => {
-		return (
-			<tr key={r}>
-				{col.map((elc, c) => {
-					const pos = r * col.length + c;
-					const id = `card-${pos}`;
-					const src = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${list[pos]}.png`;
-					return (
-						<td key={c} className="card" onClick={() => flip(pos)}>
-							<GenerateCard id={id} src={src} state={side[pos]} />
-						</td>
-					);
-				})}
-			</tr>
-		);
-	});
-};
+		}
+		if (flipped.length === col * row) {
+			alert('Congrats!');
+			console.log('Congrats');
+		}
+		console.log(flipped.length + ' ' + col * row);
+	}, [flip]);
 
-function GenerateCard({ id, src, state }) {
-	return (
-		<div className={`card__container ${state ? 'card__flip' : ''}`}>
-			<div className="card__front">
-				<img className="card__image" id={id} src={src} alt="pokemon" />
-			</div>
-			<div className="card__back">
-				<img className="card__image" id={id} src={card_back} alt="pokemon" />
-			</div>
-		</div>
-	);
-}
+	const cardFlip = (index) => {
+		if (!pause && !flip.includes(index)) {
+			setFlip((cards) => [...cards, index]);
+		}
+	};
+
+	return Array(row)
+		.fill()
+		.map((elr, r) => {
+			return Array(col)
+				.fill()
+				.map((elc, c) => {
+					const index = r * col + c;
+					const id = `card-${index}`;
+					var doFlip = flip.includes(index) ? true : false;
+					if (flipped.includes(index)) {
+						doFlip = true;
+					}
+					const src = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${list[index]}.png`;
+					return (
+						<div className="card" onClick={() => cardFlip(index)}>
+							<div className={`card__container ${doFlip ? 'card__flip' : ''}`}>
+								<div className="card__front">
+									<img className="card__image" id={id} src={src} alt="pokemon" />
+								</div>
+								<div className="card__back">
+									<img className="card__image" id={id} src={card_back} alt="pokemon" />
+								</div>
+							</div>
+						</div>
+					);
+				});
+		});
+};
 
 export default Pokemon;
