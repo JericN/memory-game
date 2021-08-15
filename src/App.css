@@ -1,3 +1,10 @@
+:root {
+	--font: monospace;
+	--border: solid #091b00 2px;
+}
+* {
+	font-family: var(--font);
+}
 .home {
 	display: flex;
 	justify-content: center;

@@ -20,15 +20,22 @@ const Pokemon = ({ col, row, list }) => {
 		}
 		if (flipped.length === col * row) {
 			alert('Congrats!');
-			console.log('Congrats');
 		}
-		console.log(flipped.length + ' ' + col * row);
 	}, [flip]);
 
 	const cardFlip = (index) => {
 		if (!pause && !flip.includes(index)) {
 			setFlip((cards) => [...cards, index]);
 		}
+	};
+
+	const cardSizeStyle = {
+		width: `calc(100% / ${col + 0.1})`,
+		height: `calc(100% / ${row + 0.1})`,
+	};
+
+	const cardBorderStyle = {
+		border: `solid #1a1f18 calc(6px - 0.5px * ${row})`,
 	};
 
 	return Array(row)
@@ -38,19 +45,19 @@ const Pokemon = ({ col, row, list }) => {
 				.fill()
 				.map((elc, c) => {
 					const index = r * col + c;
-					const id = `card-${index}`;
+					const id = `card__${index}`;
 					var doFlip = flip.includes(index) ? true : false;
 					if (flipped.includes(index)) {
 						doFlip = true;
 					}
 					const src = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${list[index]}.png`;
 					return (
-						<div className="card" onClick={() => cardFlip(index)}>
+						<div id={id} style={cardSizeStyle} className="card" onClick={() => cardFlip(index)}>
 							<div className={`card__container ${doFlip ? 'card__flip' : ''}`}>
-								<div className="card__front">
+								<div className="card__front" style={cardBorderStyle}>
 									<img className="card__image" id={id} src={src} alt="pokemon" />
 								</div>
-								<div className="card__back">
+								<div className="card__back" style={cardBorderStyle}>
 									<img className="card__image" id={id} src={card_back} alt="pokemon" />
 								</div>
 							</div>

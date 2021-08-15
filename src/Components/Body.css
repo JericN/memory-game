@@ -1,8 +1,8 @@
 .body {
 	display: flex;
-	width: 80vw;
+	width: 85%;
 	height: 100vh;
-	background-image: linear-gradient(135deg, #5c8867, #2c4232);
+	background-image: linear-gradient(135deg, #477556, #2b4433);
 }
 @media (max-width: 500px) {
 	.body {

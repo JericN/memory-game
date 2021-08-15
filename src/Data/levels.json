@@ -1,0 +1,45 @@
+[
+	{
+		"stage": "easy",
+		"width": 4,
+		"height": 2,
+		"tries": 0,
+		"timer": 0
+	},
+	{
+		"stage": "medium",
+		"width": 6,
+		"height": 3,
+		"tries": 0,
+		"timer": 0
+	},
+
+	{
+		"stage": "hard",
+		"width": 8,
+		"height": 4,
+		"tries": 0,
+		"timer": 0
+	},
+	{
+		"stage": "hell",
+		"width": 10,
+		"height": 5,
+		"tries": 0,
+		"timer": 0
+	},
+	{
+		"stage": "heck",
+		"width": 14,
+		"height": 7,
+		"tries": 100,
+		"timer": 100
+	},
+	{
+		"stage": "RIP",
+		"width": 18,
+		"height": 9,
+		"tries": 100,
+		"timer": 100
+	}
+]

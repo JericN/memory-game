@@ -6,7 +6,7 @@ function getCardList(col, row) {
 	let arr = Array((col * row) / 2).fill(1);
 	for (let i in arr) {
 		do {
-			var num = Math.floor(Math.random() * 50 + 100);
+			var num = Math.floor(Math.random() * 700 + 100);
 		} while (arr.includes(num));
 		arr[i] = num;
 	}
@@ -15,7 +15,9 @@ function getCardList(col, row) {
 	return arr;
 }
 
-export default function Body({ col = 8, row = 5 }) {
+export default function Body({ dimension, tries, timer }) {
+	let col = dimension[0];
+	let row = dimension[1];
 	var list = getCardList(col, row);
 	return (
 		<div className="body">
