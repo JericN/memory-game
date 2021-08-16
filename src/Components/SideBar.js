@@ -1,21 +1,15 @@
 import './SideBar.css';
 import React from 'react';
 import Difficulty from './Difficulty';
+import { useGlobalState } from '../store/GlobalStateProvider';
 
-export default function SideBar({
-	level,
-	setLevel,
-	dimension,
-	setDimension,
-	tries,
-	setTries,
-	timer,
-	setTimer,
-	preset,
-	setPreset,
-}) {
+export default function SideBar() {
+	const [state, dispatch] = useGlobalState();
 	const setDifficulty = () => {
-		setPreset(true);
+		dispatch({
+			type: 'SET_PRESET_WINDOW',
+			item: true,
+		});
 	};
 
 	const setTheme = () => {};
@@ -31,27 +25,12 @@ export default function SideBar({
 				</div>
 
 				<div className="menu__presets">
-					<div className="menu__stage">Difficulty:{level}</div>
-					<div className="menu__tries">Tries:{tries}</div>
-					<div className="menu__timer">Time:{timer}</div>
+					<div className="menu__stage">Difficulty:{state.stage}</div>
+					<div className="menu__tries">Tries:{state.tries}</div>
+					<div className="menu__timer">Time:{state.timer}</div>
 				</div>
 			</div>
-			<div className="slidetabs">
-				{preset && (
-					<Difficulty
-						level={level}
-						setLevel={setLevel}
-						dimension={dimension}
-						setDimension={setDimension}
-						tries={tries}
-						setTries={setTries}
-						timer={timer}
-						setTimer={setTimer}
-						preset={preset}
-						setPreset={setPreset}
-					/>
-				)}
-			</div>
+			<div className="slidetabs">{state.presetWindow && <Difficulty />}</div>
 		</div>
 	);
 }

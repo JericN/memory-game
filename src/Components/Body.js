@@ -1,6 +1,7 @@
 import './Body.css';
 import React from 'react';
 import Card from './Cards.js';
+import { useGlobalState } from '../store/GlobalStateProvider';
 
 function getCardList(col, row) {
 	let arr = Array((col * row) / 2).fill(1);
@@ -15,9 +16,10 @@ function getCardList(col, row) {
 	return arr;
 }
 
-export default function Body({ dimension, tries, timer }) {
-	let col = dimension[0];
-	let row = dimension[1];
+export default function Body() {
+	const [state] = useGlobalState();
+	let col = state.dimension[0];
+	let row = state.dimension[1];
 	var list = getCardList(col, row);
 	return (
 		<div className="body">
