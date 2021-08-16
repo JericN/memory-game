@@ -12,7 +12,13 @@ export default function SideBar() {
 		});
 	};
 
-	const setTheme = () => {};
+	const setTheme = () => {
+		dispatch({
+			type: 'SET_CARDS',
+			item: [1, 2],
+		});
+		console.log(state.cards);
+	};
 	return (
 		<div className="sidebar">
 			<div className="side__container">

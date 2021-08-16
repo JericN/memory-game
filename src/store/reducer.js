@@ -4,6 +4,8 @@ export const initialState = {
 	tries: 0,
 	timer: 0,
 	presetWindow: false,
+	card_state: Array(8).fill(false),
+	card_id: Array(8).fill(0),
 };
 const reducer = (state, action) => {
 	console.log(action.type);
@@ -32,6 +34,16 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				presetWindow: action.item,
+			};
+		case 'SET_CARD_STATE':
+			return {
+				...state,
+				card_state: action.item,
+			};
+		case 'SET_CARD_ID':
+			return {
+				...state,
+				card_id: action.item,
 			};
 		default: {
 			return state;
