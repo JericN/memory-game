@@ -1,11 +1,13 @@
 export const initialState = {
 	stage: 'easy',
 	dimension: [4, 2],
+	count: 8,
 	tries: 0,
 	timer: 0,
 	presetWindow: false,
+	playing: true,
 	card_state: Array(8).fill(false),
-	card_id: Array(8).fill(0),
+	card_id: getCardList(8),
 };
 const reducer = (state, action) => {
 	console.log(action.type);
@@ -19,6 +21,11 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				dimension: action.item,
+			};
+		case 'SET_COUNT':
+			return {
+				...state,
+				count: action.item,
 			};
 		case 'SET_TRIES':
 			return {
@@ -35,6 +42,11 @@ const reducer = (state, action) => {
 				...state,
 				presetWindow: action.item,
 			};
+		case 'SET_PLAYING':
+			return {
+				...state,
+				playing: action.item,
+			};
 		case 'SET_CARD_STATE':
 			return {
 				...state,
@@ -43,12 +55,25 @@ const reducer = (state, action) => {
 		case 'SET_CARD_ID':
 			return {
 				...state,
-				card_id: action.item,
+				card_id: getCardList(action.item),
 			};
 		default: {
 			return state;
 		}
 	}
 };
+
+function getCardList(count) {
+	let arr = Array(count / 2).fill(1);
+	for (let i in arr) {
+		do {
+			var num = Math.floor(Math.random() * 700 + 100);
+		} while (arr.includes(num));
+		arr[i] = num;
+	}
+	arr = [...arr, ...arr];
+	arr.sort(() => Math.random() - 0.5);
+	return arr;
+}
 
 export default reducer;

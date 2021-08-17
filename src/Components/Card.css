@@ -1,8 +1,12 @@
 .card {
 	perspective: 1000px;
+	transition: transform 0.5s;
 	margin: auto;
 }
 
+.move {
+	transform: translate(100vw);
+}
 .card__container {
 	position: relative;
 	width: 90%;

@@ -1,7 +1,7 @@
 import './Card.css';
 import { useState, useEffect } from 'react';
 import card_back from '../Images/pokeball_green.png';
-import { useGlobalState } from '../store/GlobalStateProvider';
+import { useGlobalState } from '../State/GlobalStateProvider';
 
 const Pokemon = () => {
 	const [state, dispatch] = useGlobalState();
@@ -15,14 +15,22 @@ const Pokemon = () => {
 
 	useEffect(() => {
 		if (flip.length === 2) {
-			setTimeout(() => setFlip([]), 1000);
+			dispatch({
+				type: 'SET_TRIES',
+				item: state.tries + 1,
+			});
 			setPause(true);
-			setTimeout(() => setPause(false), 1000);
+			let timer = setTimeout(() => setPause(false), 1000);
 			if (list[flip[0]] === list[flip[1]]) {
+				clearTimeout(timer);
+				setTimeout(() => setPause(false), 200);
+				setFlip([]);
 				dispatch({
 					type: 'SET_CARD_STATE',
 					item: flippedCard(),
 				});
+			} else {
+				setTimeout(() => setFlip([]), 1000);
 			}
 		}
 	}, [flip]);
@@ -44,7 +52,7 @@ const Pokemon = () => {
 	};
 
 	const cardFlip = (index) => {
-		if (!pause && !flip.includes(index)) {
+		if (!state.presetWindow && !pause && !flip.includes(index) && !state.card_state[index]) {
 			setFlip((cards) => [...cards, index]);
 		}
 	};
@@ -75,10 +83,10 @@ const Pokemon = () => {
 						<div
 							id={id}
 							style={cardSizeStyle}
-							className="card"
+							className={`card ${state.playing ? '' : 'move'}`}
 							onClick={() => cardFlip(index)}
 						>
-							<div className={`card__container ${doFlip ? 'card__flip' : ''}`}>
+							<div className={`card__container  ${doFlip ? 'card__flip' : ''}`}>
 								<div className="card__front" style={cardBorderStyle}>
 									<img className="card__image" id={id} src={src} alt="pokemon" />
 								</div>
