@@ -2,7 +2,11 @@
 	display: flex;
 	width: 85%;
 	height: 100vh;
-	background-image: linear-gradient(135deg, #477556, #2b4433);
+	/*Color Holder here */
+	/*Color Holder here */
+	/*Color Holder here */
+	background-image: var(--body_bg);
+
 	overflow-x: hidden;
 	overflow-y: hidden;
 }
@@ -19,5 +23,4 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	/* border: solid black 2px; */
 }

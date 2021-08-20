@@ -1,0 +1,22 @@
+{
+	"summer": {
+		"font_color": "#f55c47",
+		"body_bg": "linear-gradient(135deg, #c54938, #f55c47)",
+		"body_ball": "pokeball_orange.png",
+		"side_bg": "radial-gradient(#1e5c55, #174742)",
+		"side_button": "radial-gradient(#fa6754, #b44334)",
+		"side_poke": "charmander.png",
+		"card_back": "radial-gradient(#2a8075, #1d5c54 60%, #184d47 80%)",
+		"card_front": "radial-gradient(#39ad9e, #25776c 60%, #1d5a53 80%)"
+	},
+	"sea": {
+		"font_color": "#f55c47",
+		"body_bg": "linear-gradient(135deg, #c54938, #f55c47)",
+		"body_ball": "pokeball_green.png",
+		"side_bg": "radial-gradient(#1e5c55, #174742)",
+		"side_button": "radial-gradient(#fa6754, #b44334)",
+		"side_poke": "../Images/charmander.png",
+		"card_back": "radial-gradient(#2a8075, #1d5c54 60%, #184d47 80%)",
+		"card_front": "radial-gradient(#39ad9e, #25776c 60%, #1d5a53 80%)"
+	}
+}

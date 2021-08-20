@@ -8,6 +8,7 @@ export const initialState = {
 	playing: true,
 	card_state: Array(8).fill(false),
 	card_id: getCardList(8),
+	theme: 'summer',
 };
 const reducer = (state, action) => {
 	console.log(action.type);
@@ -56,6 +57,11 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				card_id: getCardList(action.item),
+			};
+		case 'SET_THEME':
+			return {
+				...state,
+				theme: action.item(),
 			};
 		default: {
 			return state;

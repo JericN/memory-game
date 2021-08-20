@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './Difficulty.css';
-import levels from '../Data/levels.json';
-import { useGlobalState } from '../State/GlobalStateProvider';
+import levels from '../../Data/levels.json';
+import { useGlobalState } from '../../State/GlobalStateProvider';
 
 function Difficulty() {
 	const [{}, dispatch] = useGlobalState();

@@ -33,21 +33,24 @@
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 5px 5px 8px 0 #000000d5;
 	border-radius: 20px;
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
 
+/*Color Holder here */
+/*Color Holder here */
+/*Color Holder here */
 .card__front {
-	background-image: radial-gradient(#b7dfbd, #3e6849 60%, #2c5336 80%);
+	background-image: var(--card_front);
 	transform: rotateY(180deg);
 }
 
 .card__back {
-	background-image: radial-gradient(#4d7235, #34412d 90%);
+	background-image: var(--card_back);
 }
 .card__image {
 	width: 90%;
-	max-width: 15vh;
+	max-width: 18vh;
 }

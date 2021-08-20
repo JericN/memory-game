@@ -1,11 +1,10 @@
 import './Card.css';
+import theme from '../Data/theme.json';
 import { useState, useEffect } from 'react';
-import card_back from '../Images/pokeball_green.png';
 import { useGlobalState } from '../State/GlobalStateProvider';
 
 const Pokemon = () => {
 	const [state, dispatch] = useGlobalState();
-
 	const [pause, setPause] = useState(false);
 	const [flip, setFlip] = useState([]);
 
@@ -34,6 +33,7 @@ const Pokemon = () => {
 			}
 		}
 	}, [flip]);
+
 	useEffect(() => {
 		setFlip([]);
 	}, [state.presetWindow]);
@@ -62,8 +62,14 @@ const Pokemon = () => {
 		height: `calc(100% / ${row + 0.1})`,
 	};
 
-	const cardBorderStyle = {
-		border: `solid #1a1f18 calc(6px - 0.5px * ${row})`,
+	const cardColorFront = {
+		border: `solid #000000d2 calc(6px - 0.5px * ${row})`,
+		// backgroundImage: theme[state.theme].card_front,
+	};
+
+	const cardColorBack = {
+		border: `solid #000000d2 calc(6px - 0.5px * ${row})`,
+		// backgroundImage: theme[state.theme].card_back,
 	};
 
 	return Array(row)
@@ -87,14 +93,17 @@ const Pokemon = () => {
 							onClick={() => cardFlip(index)}
 						>
 							<div className={`card__container  ${doFlip ? 'card__flip' : ''}`}>
-								<div className="card__front" style={cardBorderStyle}>
+								<div className="card__front" style={cardColorFront}>
 									<img className="card__image" id={id} src={src} alt="pokemon" />
 								</div>
-								<div className="card__back" style={cardBorderStyle}>
+								<div className="card__back" style={cardColorBack}>
 									<img
 										className="card__image"
 										id={id}
-										src={card_back}
+										src={
+											require(`../Images/${theme['summer'].body_ball}`)
+												.default
+										}
 										alt="pokemon"
 									/>
 								</div>

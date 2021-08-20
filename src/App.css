@@ -1,9 +1,24 @@
 :root {
-	--font: monospace;
-	--border: solid #091b00 2px;
+	--font_family: monospace;
+	--border: solid black 0.15vw;
+	/* --font_color: #f55c47;
+	--body_bg: linear-gradient(135deg, #c54938, #f55c47);
+	--side_bg: radial-gradient(#1e5c55, #174742);
+	--side_button: radial-gradient(#fa6754, #b44334);
+	--card_back: radial-gradient(#2a8075, #1d5c54 60%, #184d47 80%);
+	--card_front: radial-gradient(#39ad9e, #25776c 60%, #1d5a53 80%); */
 }
 * {
-	font-family: var(--font);
+	font-family: var(--font_family);
+}
+
+/* Disable Image Highlighting */
+img {
+	-khtml-user-select: none;
+	-o-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
 }
 .home {
 	display: flex;
