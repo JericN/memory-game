@@ -55,6 +55,10 @@ function Difficulty() {
 
 	useEffect(() => {});
 
+	const styleColor = {
+		// backgroundImage: theme[state.theme].side_bg,
+	};
+
 	return (
 		<div className="level">
 			{levels.map((level) => {
@@ -62,6 +66,7 @@ function Difficulty() {
 					<div
 						id={`level__${level.stage}`}
 						className={`level__stage`}
+						style={styleColor}
 						onClick={() => changeLevel(level)}
 					>
 						{level.stage.toUpperCase()}

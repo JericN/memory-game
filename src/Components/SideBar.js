@@ -86,7 +86,7 @@ export default function SideBar() {
 			</div>
 			<img
 				className="menu_image"
-				src={require(`../Images/${theme['summer'].side_poke}`).default}
+				src={require(`../Images/${theme[state.theme].side_poke}`).default}
 				alt="pokemon"
 			/>
 			<div className="slidetabs">{state.presetWindow && <Difficulty />}</div>

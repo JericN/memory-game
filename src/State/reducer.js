@@ -8,7 +8,7 @@ export const initialState = {
 	playing: true,
 	card_state: Array(8).fill(false),
 	card_id: getCardList(8),
-	theme: 'summer',
+	theme: 'blue',
 };
 const reducer = (state, action) => {
 	console.log(action.type);

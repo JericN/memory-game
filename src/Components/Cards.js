@@ -101,7 +101,7 @@ const Pokemon = () => {
 										className="card__image"
 										id={id}
 										src={
-											require(`../Images/${theme['summer'].body_ball}`)
+											require(`../Images/${theme[state.theme].body_ball}`)
 												.default
 										}
 										alt="pokemon"

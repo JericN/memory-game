@@ -4,6 +4,7 @@
 	display: flex;
 	flex-direction: column;
 	border-right: solid #000000d2 0.3vw;
+	background-image: var(--side_bg);
 }
 
 .side__container {
