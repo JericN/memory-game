@@ -1,15 +1,20 @@
 :root {
 	--font_family: monospace;
 	--border: solid black 0.15vw;
-	--font_color: #c1e8ff;
-	--body_bg: linear-gradient(135deg, #7097ad, #c1dbeb);
-	--side_bg: radial-gradient(#274074, #14274e);
-	--side_button: radial-gradient(#c5eaff, #5e7d8f);
-	--card_back: radial-gradient(#45577c, #1c325a 60%, #14274e 80%);
-	--card_front: radial-gradient(#667aa0, #394867 60%, #2f3c57 80%);
+	--font_color: 'hsl(200, 100%, 88%)';
+	--body_bg: 'linear-gradient(135deg, hsl(200, 27%, 56%), hsl(200, 51%, 84%))';
+	--body_ball: 'pokeball_blue.png';
+	--side_bg: 'radial-gradient(hsl(200, 50%, 30%), hsl(200, 59%, 19%))';
+	--side_button: 'radial-gradient(hsl(200, 100%, 89%), hsl(200, 21%, 46%))';
+	--side_poke: 'squirtle.png';
+	--card_back: 'radial-gradient(hsl(200, 28%, 38%), hsl(200, 53%, 23%) 60%, hsl(200, 59%, 19%) 80%)';
+	--card_front: 'radial-gradient(hsl(200, 23%, 51%), hsl(200, 29%, 31%) 60%, hsl(200, 30%, 26%) 80%)';
 }
 * {
 	font-family: var(--font_family);
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 /* Disable Image Highlighting */

@@ -62,14 +62,8 @@ const Pokemon = () => {
 		height: `calc(100% / ${row + 0.1})`,
 	};
 
-	const cardColorFront = {
+	const cardBorder = {
 		border: `solid #000000d2 calc(6px - 0.5px * ${row})`,
-		// backgroundImage: theme[state.theme].card_front,
-	};
-
-	const cardColorBack = {
-		border: `solid #000000d2 calc(6px - 0.5px * ${row})`,
-		// backgroundImage: theme[state.theme].card_back,
 	};
 
 	return Array(row)
@@ -93,10 +87,10 @@ const Pokemon = () => {
 							onClick={() => cardFlip(index)}
 						>
 							<div className={`card__container  ${doFlip ? 'card__flip' : ''}`}>
-								<div className="card__front" style={cardColorFront}>
+								<div className="card__front" style={cardBorder}>
 									<img className="card__image" id={id} src={src} alt="pokemon" />
 								</div>
-								<div className="card__back" style={cardColorBack}>
+								<div className="card__back" style={cardBorder}>
 									<img
 										className="card__image"
 										id={id}

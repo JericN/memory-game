@@ -1,7 +1,8 @@
 import './SideBar.css';
 import theme from '../Data/theme.json';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Difficulty from './popup/Difficulty';
+import Theme from './popup/Theme';
 import { useGlobalState } from '../State/GlobalStateProvider';
 
 export default function SideBar() {
@@ -11,7 +12,13 @@ export default function SideBar() {
 	const setDifficulty = () => {
 		dispatch({
 			type: 'SET_PRESET_WINDOW',
-			item: true,
+			item: 'stage',
+		});
+	};
+	const setTheme = () => {
+		dispatch({
+			type: 'SET_PRESET_WINDOW',
+			item: 'theme',
 		});
 	};
 
@@ -50,35 +57,18 @@ export default function SideBar() {
 		}, 1000);
 	};
 
-	const setTheme = () => {};
-
-	const styleSidebar = {
-		// backgroundImage: theme[state.theme].side_bg,
-	};
-	const styleButton = {
-		// backgroundImage: theme[state.theme].side_button,
-	};
-
 	return (
-		<div className="sidebar" style={styleSidebar}>
+		<div className="sidebar">
 			<div className="side__container">
 				<h1>Memory Limit</h1>
-				<div
-					className="menu__setDifficulty button"
-					style={styleButton}
-					onClick={() => setDifficulty()}
-				>
+				<div className="menu__setDifficulty button" onClick={() => setDifficulty()}>
 					Difficulty
 				</div>
-				<div
-					className="menu__setTheme button"
-					style={styleButton}
-					onClick={() => clearInterval()}
-				>
+				<div className="menu__setTheme button" onClick={() => setTheme()}>
 					Theme
 				</div>
 
-				<div className="menu__info" style={styleButton}>
+				<div className="menu__info">
 					<div className="menu__stage">Stage: {state.stage.toUpperCase()}</div>
 					<div className="menu__tries">Tries: {state.tries}</div>
 					<div className="menu__timer">Time: {timer}</div>
@@ -89,7 +79,8 @@ export default function SideBar() {
 				src={require(`../Images/${theme[state.theme].side_poke}`).default}
 				alt="pokemon"
 			/>
-			<div className="slidetabs">{state.presetWindow && <Difficulty />}</div>
+			<div className="tab__stage">{state.presetWindow === 'stage' && <Difficulty />}</div>
+			<div className="tag__theme">{state.presetWindow === 'theme' && <Theme />}</div>
 		</div>
 	);
 }

@@ -7,6 +7,13 @@
 	background-image: var(--side_bg);
 }
 
+h1 {
+	margin: 2vw;
+	font-size: calc(3vw);
+	text-align: center;
+	color: var(--font_color);
+}
+
 .side__container {
 	width: 100%;
 	height: 90%;
@@ -25,20 +32,11 @@
 	border: var(--border);
 }
 
-h1 {
-	font-size: calc(3vw);
-	text-align: center;
-	color: var(--font_color);
-}
-
 .button {
 	align-items: center;
 	font-size: calc(1.4vw);
 	font-weight: 800;
 	cursor: pointer;
-}
-
-.menu__info {
 }
 
 .menu__info > div {

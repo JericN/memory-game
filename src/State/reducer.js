@@ -4,11 +4,11 @@ export const initialState = {
 	count: 8,
 	tries: 0,
 	timer: 0,
-	presetWindow: false,
+	presetWindow: null,
 	playing: true,
 	card_state: Array(8).fill(false),
 	card_id: getCardList(8),
-	theme: 'blue',
+	theme: 'winter',
 };
 const reducer = (state, action) => {
 	console.log(action.type);
@@ -61,7 +61,7 @@ const reducer = (state, action) => {
 		case 'SET_THEME':
 			return {
 				...state,
-				theme: action.item(),
+				theme: action.item,
 			};
 		default: {
 			return state;

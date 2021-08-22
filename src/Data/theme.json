@@ -1,22 +1,32 @@
 {
-	"summer": {
-		"font_color": "#f55c47",
-		"body_bg": "linear-gradient(135deg, #c54938, #f55c47)",
-		"body_ball": "pokeball_orange.png",
-		"side_bg": "radial-gradient(#1e5c55, #174742)",
-		"side_button": "radial-gradient(#fa6754, #b44334)",
-		"side_poke": "charmander.png",
-		"card_back": "radial-gradient(#2a8075, #1d5c54 60%, #184d47 80%)",
-		"card_front": "radial-gradient(#39ad9e, #25776c 60%, #1d5a53 80%)"
+	"spring": {
+		"font_color": "hsl(100, 100%, 88%)",
+		"body_bg": "linear-gradient(135deg, hsl(100, 27%, 56%), hsl(100, 51%, 84%))",
+		"body_ball": "pokeball_green.png",
+		"side_bg": "radial-gradient(hsl(100, 50%, 30%), hsl(100, 59%, 19%))",
+		"side_button": "radial-gradient(hsl(100, 100%, 89%), hsl(100, 21%, 46%))",
+		"side_poke": "bulbasaur.png",
+		"card_back": "radial-gradient(hsl(100, 28%, 38%), hsl(100, 53%, 23%) 60%, hsl(100, 59%, 19%) 80%)",
+		"card_front": "radial-gradient(hsl(100, 23%, 51%), hsl(100, 29%, 31%) 60%, hsl(100, 30%, 26%) 80%)"
 	},
-	"blue": {
-		"font_color": "#c1e8ff",
-		"body_bg": "linear-gradient(135deg, #7097ad, #c1dbeb)",
+	"summer": {
+		"font_color": "hsl(10, 100%, 88%)",
+		"body_bg": "linear-gradient(135deg, hsl(10, 27%, 56%), hsl(10, 51%, 84%))",
+		"body_ball": "pokeball_orange.png",
+		"side_bg": "radial-gradient(hsl(10, 50%, 30%), hsl(10, 59%, 19%))",
+		"side_button": "radial-gradient(hsl(10, 100%, 89%), hsl(10, 21%, 46%))",
+		"side_poke": "charmander.png",
+		"card_back": "radial-gradient(hsl(10, 28%, 38%), hsl(10, 53%, 23%) 60%, hsl(10, 59%, 19%) 80%)",
+		"card_front": "radial-gradient(hsl(10, 23%, 51%), hsl(10, 29%, 31%) 60%, hsl(10, 30%, 26%) 80%)"
+	},
+	"winter": {
+		"font_color": "hsl(200, 100%, 88%)",
+		"body_bg": "linear-gradient(135deg, hsl(200, 27%, 56%), hsl(200, 51%, 84%))",
 		"body_ball": "pokeball_blue.png",
-		"side_bg": "radial-gradient(#14274e, #14274e)",
-		"side_button": "radial-gradient(#c5eaff, #5e7d8f)",
+		"side_bg": "radial-gradient(hsl(200, 50%, 30%), hsl(200, 59%, 19%))",
+		"side_button": "radial-gradient(hsl(200, 100%, 89%), hsl(200, 21%, 46%))",
 		"side_poke": "squirtle.png",
-		"card_back": "radial-gradient(#45577c, #1c325a 60%, #14274e 80%)",
-		"card_front": "radial-gradient(#667aa0, #394867 60%, #2f3c57 80%)"
+		"card_back": "radial-gradient(hsl(200, 28%, 38%), hsl(200, 53%, 23%) 60%, hsl(200, 59%, 19%) 80%)",
+		"card_front": "radial-gradient(hsl(200, 23%, 51%), hsl(200, 29%, 31%) 60%, hsl(200, 30%, 26%) 80%)"
 	}
 }

@@ -2,11 +2,7 @@
 	display: flex;
 	width: 85%;
 	height: 100vh;
-	/*Color Holder here */
-	/*Color Holder here */
-	/*Color Holder here */
 	background-image: var(--body_bg);
-
 	overflow-x: hidden;
 	overflow-y: hidden;
 }

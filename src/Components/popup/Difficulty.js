@@ -4,8 +4,8 @@ import levels from '../../Data/levels.json';
 import { useGlobalState } from '../../State/GlobalStateProvider';
 
 function Difficulty() {
-	const [{}, dispatch] = useGlobalState();
-	const changeLevel = (level) => {
+	const [, dispatch] = useGlobalState();
+	const changeLevel = (stage, level) => {
 		dispatch({
 			type: 'SET_PRESET_WINDOW',
 			item: false,
@@ -20,12 +20,12 @@ function Difficulty() {
 				item: true,
 			});
 		}, 1000);
-		setTimeout(() => setVar(level), 500);
+		setTimeout(() => setVar(stage, level), 500);
 	};
-	function setVar(level) {
+	function setVar(stage, level) {
 		dispatch({
 			type: 'SET_STAGE',
-			item: level.stage,
+			item: stage,
 		});
 		dispatch({
 			type: 'SET_DIMENSION',
@@ -55,21 +55,16 @@ function Difficulty() {
 
 	useEffect(() => {});
 
-	const styleColor = {
-		// backgroundImage: theme[state.theme].side_bg,
-	};
-
 	return (
 		<div className="level">
-			{levels.map((level) => {
+			{Object.entries(levels).map((level) => {
 				return (
 					<div
-						id={`level__${level.stage}`}
+						id={`level__${level[0]}`}
 						className={`level__stage`}
-						style={styleColor}
-						onClick={() => changeLevel(level)}
+						onClick={() => changeLevel(level[0], level[1])}
 					>
-						{level.stage.toUpperCase()}
+						{level[0].toUpperCase()}
 					</div>
 				);
 			})}
