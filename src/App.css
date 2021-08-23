@@ -1,4 +1,6 @@
 :root {
+	--width: '5';
+	--height: '2';
 	--font_family: monospace;
 	--border: solid black 0.15vw;
 	--font_color: 'hsl(200, 100%, 88%)';
@@ -25,9 +27,19 @@ img {
 	-webkit-user-select: none;
 	user-select: none;
 }
+
 .home {
 	display: flex;
+	flex-direction: row;
 	justify-content: center;
 	margin-left: auto;
 	margin-right: auto;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+	.home {
+		flex-direction: column;
+	}
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Difficulty.css';
 import levels from '../../Data/levels.json';
 import { useGlobalState } from '../../State/GlobalStateProvider';
@@ -52,8 +52,6 @@ function Difficulty() {
 			item: 0,
 		});
 	}
-
-	useEffect(() => {});
 
 	return (
 		<div className="level">

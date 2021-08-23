@@ -1,7 +1,6 @@
 .card {
 	perspective: 1000px;
 	transition: transform 0.5s;
-	margin: auto;
 }
 
 .move {
@@ -34,14 +33,11 @@
 	height: 100%;
 	box-sizing: border-box;
 	box-shadow: 5px 5px 8px 0 #000000d5;
-	border-radius: 20px;
+	border-radius: calc(20vw / (var(--height) + var(--width)));
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
 
-/*Color Holder here */
-/*Color Holder here */
-/*Color Holder here */
 .card__front {
 	background-image: var(--card_front);
 	transform: rotateY(180deg);
@@ -52,5 +48,15 @@
 }
 .card__image {
 	width: 90%;
-	max-width: 20vh;
+	max-width: calc(80vh / var(--height));
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+	.card__image {
+		max-width: calc(80vh / var(--width));
+	}
+
+	.card__container > div {
+		border-radius: calc(20vh / (var(--height) + var(--width)));
+	}
 }

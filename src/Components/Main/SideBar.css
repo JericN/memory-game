@@ -15,14 +15,12 @@ h1 {
 }
 
 .side__container {
-	width: 100%;
 	height: 90%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 .side__container > div {
-	width: 70%;
 	margin: 0.5vw;
 	padding: 0.5vw;
 	border-radius: 1vw;
@@ -33,12 +31,15 @@ h1 {
 }
 
 .button {
+	width: 70%;
 	align-items: center;
 	font-size: calc(1.4vw);
 	font-weight: 800;
 	cursor: pointer;
 }
-
+.menu__info {
+	width: 70%;
+}
 .menu__info > div {
 	font-size: calc(1.1vw);
 	font-weight: 500;
@@ -47,5 +48,46 @@ h1 {
 }
 
 .menu_image {
-	width: 100%;
+	width: 15vw;
+}
+
+@media only screen and (max-aspect-ratio: 1/1) {
+	h1 {
+		margin-top: 1vh;
+		margin-bottom: 0;
+		font-size: calc(3vh);
+	}
+	.sidebar {
+		height: 10vh;
+		width: 100%;
+		flex-direction: column;
+	}
+
+	.side__container {
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	.side__container > div {
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		margin: 0.5vh;
+		padding: 0.5vh;
+		height: 2vh;
+		font-size: calc(1.5vh);
+	}
+	.button {
+		width: 20%;
+	}
+	.menu__info {
+		width: 40%;
+	}
+	.menu__info > div {
+		font-size: calc(1.2vh);
+		font-weight: 500;
+	}
+	.menu_image {
+		display: none;
+	}
 }

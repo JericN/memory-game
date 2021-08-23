@@ -1,9 +1,11 @@
 import './SideBar.css';
-import theme from '../Data/theme.json';
 import React, { useState } from 'react';
-import Difficulty from './popup/Difficulty';
-import Theme from './popup/Theme';
-import { useGlobalState } from '../State/GlobalStateProvider';
+import Difficulty from '../Sub/Difficulty';
+import Theme from '../Sub/Theme';
+import { useGlobalState } from '../../State/GlobalStateProvider';
+import charmander from '../../Images/charmander.png';
+import bulbasaur from '../../Images/bulbasaur.png';
+import squirtle from '../../Images/squirtle.png';
 
 export default function SideBar() {
 	const [timer, setTimer] = useState('');
@@ -21,6 +23,11 @@ export default function SideBar() {
 			item: 'theme',
 		});
 	};
+	const [character] = useState({
+		summer: charmander,
+		spring: bulbasaur,
+		winter: squirtle,
+	});
 
 	const id = React.useRef(null);
 
@@ -59,26 +66,21 @@ export default function SideBar() {
 
 	return (
 		<div className="sidebar">
+			<h1>Memory Limit</h1>
 			<div className="side__container">
-				<h1>Memory Limit</h1>
 				<div className="menu__setDifficulty button" onClick={() => setDifficulty()}>
 					Difficulty
 				</div>
 				<div className="menu__setTheme button" onClick={() => setTheme()}>
 					Theme
 				</div>
-
 				<div className="menu__info">
 					<div className="menu__stage">Stage: {state.stage.toUpperCase()}</div>
 					<div className="menu__tries">Tries: {state.tries}</div>
 					<div className="menu__timer">Time: {timer}</div>
 				</div>
 			</div>
-			<img
-				className="menu_image"
-				src={require(`../Images/${theme[state.theme].side_poke}`).default}
-				alt="pokemon"
-			/>
+			<img className="menu_image" src={character[state.theme]} alt="pokemon" />
 			<div className="tab__stage">{state.presetWindow === 'stage' && <Difficulty />}</div>
 			<div className="tag__theme">{state.presetWindow === 'theme' && <Theme />}</div>
 		</div>

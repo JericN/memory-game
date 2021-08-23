@@ -4,7 +4,7 @@ import theme from '../../Data/theme.json';
 import { useGlobalState } from '../../State/GlobalStateProvider';
 
 function Difficulty() {
-	const [state, dispatch] = useGlobalState();
+	const [, dispatch] = useGlobalState();
 	const changeLevel = (style) => {
 		console.log(style);
 		dispatch({

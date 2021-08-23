@@ -8,10 +8,11 @@ export const initialState = {
 	playing: true,
 	card_state: Array(8).fill(false),
 	card_id: getCardList(8),
+	card_front_img: null,
+	card_back_img: null,
 	theme: 'winter',
 };
 const reducer = (state, action) => {
-	console.log(action.type);
 	switch (action.type) {
 		case 'SET_STAGE':
 			return {
